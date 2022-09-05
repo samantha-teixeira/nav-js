@@ -1,3 +1,4 @@
+let menu = document.querySelector(".menu");
 let burger = document.querySelector('.burger');
 let menu_deux = document.querySelector('.menu_deux');
 let open_menu = document.querySelector('.menu_two');
@@ -30,30 +31,30 @@ close.addEventListener('click', function() {
     }
 });
 
-function myFunction(x) {
-    if (x.matches) { // If media query matches
+let littleScreen= window.matchMedia("(max-width: 700px)")
+let largeScreen = window.matchMedia("(min-width: 701px)")
+
+function myFunction(littleScreen) {
+    if (littleScreen.matches) { // If media query matches
+        burger.style.display = "block";
+        menu.style.display = "none";
+    } else {
+        return false;
+    }
+}
+
+function myFunction1(largeScreen) {
+    if (largeScreen.matches) { // If media query matches
         open_menu.style.display = 'none';
         burger.style.display = "none";
         close.style.display = "none";
+        menu.style.display = "block";
     } else {
         return false;
     }
-  }
-  
-  var x = window.matchMedia("(min-width: 701px)")
-  myFunction(x) // Call listener function at run time
-
-  function myFunction(x) {
-    if (x.matches) { // If media query matches
-        open_menu.style.display = 'block';
-        burger.style.display = "block";
-        close.style.display = "block";
-    } else {
-        return false;
-    }
-  }
-  
-  var x1 = window.matchMedia("(max-width: 700px)")
-  myFunction(x) // Call listener function at run time
+}
+   
+myFunction(littleScreen) // Call listener function at run time
+myFunction1(largeScreen) // Call listener function at run time
   
 
