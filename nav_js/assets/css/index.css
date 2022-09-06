@@ -74,7 +74,6 @@ hr {
     top: 0;
     left: 0;
     bottom: 0;
-    display: none;
     position: fixed;
     background-color: rgba(2, 2, 2, 0.652);
     padding: 12px;

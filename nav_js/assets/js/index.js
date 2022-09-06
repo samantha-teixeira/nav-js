@@ -6,7 +6,8 @@ let close = document.querySelector(".close");
 
 burger.addEventListener('click', function() {
     if (menu_deux.style.display = 'none') {
-        open_menu.style.display = 'block';
+        open_menu.style.display = 'flex';
+        open_menu.style.flexDirection = 'column';
         menu_deux.style.display = 'block';
         burger.style.display = "none";
         close.style.display = "block";
@@ -31,8 +32,6 @@ close.addEventListener('click', function() {
     }
 });
 
-let littleScreen= window.matchMedia("(max-width: 700px)")
-let largeScreen = window.matchMedia("(min-width: 701px)")
 
 function myFunction(littleScreen) {
     if (littleScreen.matches) { // If media query matches
@@ -42,6 +41,11 @@ function myFunction(littleScreen) {
         return false;
     }
 }
+
+let littleScreen= window.matchMedia("(max-width: 700px)")
+myFunction(littleScreen) // Call listener function at run time
+littleScreen.addListener(myFunction)
+
 
 function myFunction1(largeScreen) {
     if (largeScreen.matches) { // If media query matches
@@ -53,8 +57,23 @@ function myFunction1(largeScreen) {
         return false;
     }
 }
-   
-myFunction(littleScreen) // Call listener function at run time
+
+let largeScreen = window.matchMedia("(min-width: 701px)")
 myFunction1(largeScreen) // Call listener function at run time
+largeScreen.addListener(myFunction1)
   
 
+// let para = document.querySelector(".dd");
+
+// function test(x) {
+//     if (x.matches) {
+//         para.style.color = "red";
+//     } else {
+//         para.style.color = "black";
+
+//     }
+// }
+
+// let x = window.matchMedia("(max-width: 700px)")
+// test(x);
+// x.addListener(test)
